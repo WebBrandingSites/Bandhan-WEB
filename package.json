@@ -1,0 +1,29 @@
+{
+  "name": "bandhan",
+  "version": "1.0.0",
+  "description": "A new project.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/favazmk/Bandhan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/favazmk/Bandhan/issues"
+  },
+  "homepage": "https://github.com/favazmk/Bandhan#readme",
+  "devDependencies": {
+    "vite": "^8.0.16"
+  },
+  "dependencies": {
+    "lucide": "^1.17.0"
+  }
+}

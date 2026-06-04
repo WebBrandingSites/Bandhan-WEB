@@ -210,6 +210,24 @@ header {
   padding: 16px 0;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  border-radius: 4px;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.logo-link:hover .logo-img {
+  transform: scale(1.05);
+}
+
 .logo-text {
   font-family: var(--font-headings);
   font-size: 1.5rem;

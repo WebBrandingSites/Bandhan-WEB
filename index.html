@@ -27,122 +27,132 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="fade-in delay-1 scroll-float" data-play="onload">
-          <span class="scroll-float-text">Building Reliable Infrastructure With Safety & Precision</span>
-        </h1>
-        <p class="fade-in delay-2">Bandhan Contracting & General Maintenance LLC delivers reliable construction, civil works, technical support, and maintenance services across the UAE with a strong commitment to quality, safety, and operational excellence.</p>
-        <a href="/contact.html" class="btn btn-primary fade-in delay-3">Get in Touch <i data-lucide="phone"></i></a>
-      </div>
-    </section>
-
-    <!-- About Intro Section -->
-    <section class="section about-overview bg-glow-wrapper">
-      <div class="bg-glow-light"></div>
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-text reveal-3d reveal-3d--tilt-left">
-            <span class="section-subtitle">Who We Are</span>
-            <h2 class="section-title scroll-float" data-play="scroll"><span class="scroll-float-text">About Our Company</span></h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 20px;">Established in 2024, Bandhan Contracting & General Maintenance LLC has rapidly built a reputation for dependable project execution, skilled manpower, and professional service delivery. We support industrial, commercial, and infrastructure projects with a focus on safety, efficiency, and long-term value.</p>
-            <br/>
-            <a href="/about.html" class="btn btn-secondary">Read More <i data-lucide="zap"></i></a>
+    <!-- Unified Scrollytelling Section (Hero + About + Services + Why Choose Us) -->
+    <section class="scrollytelling-section" id="scrollytelling-section">
+      <div class="scrollytelling-sticky">
+        <!-- Vignette overlay to blend canvas edges -->
+        <div class="scrollytelling-vignette"></div>
+        
+        <!-- Bottom fade overlay to blend with next section -->
+        <div class="scrollytelling-bottom-fade"></div>
+        
+        <!-- HTML5 Canvas for the 3D sequence -->
+        <canvas id="scrolly-canvas"></canvas>
+        
+        <!-- Preloader -->
+        <div class="scrollytelling-loader">
+          <div class="scrolly-spinner"></div>
+          <p>Loading 3D Experience... 0%</p>
+        </div>
+        
+        <!-- Floating Text Containers (Original Home Content) -->
+        <div class="scrollytelling-text-container">
+          
+          <!-- Overlay 1: Hero Section Content -->
+          <div class="scrollytelling-overlay-wrapper flex-center text-overlay-1">
+            <div class="scrollytelling-card text-center hero-card" style="max-width: 850px;">
+              <h1 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -2px; color: var(--text-light);">
+                Building Reliable Infrastructure With Safety & Precision
+              </h1>
+              <p style="font-size: 1.2rem; margin-bottom: 30px; color: #b1b9b9; max-width: 650px; line-height: 1.6; margin-left: auto; margin-right: auto;">
+                Bandhan Contracting & General Maintenance LLC delivers reliable construction, civil works, technical support, and maintenance services across the UAE with a strong commitment to quality, safety, and operational excellence.
+              </p>
+              <a href="/contact.html" class="btn btn-primary">Get in Touch <i data-lucide="phone"></i></a>
+            </div>
           </div>
-          <div class="overlap-image-wrapper reveal-3d reveal-3d--tilt-right">
-            <img src="/about.jpg" alt="Construction Work">
+          
+          <!-- Overlay 2: About Us Content -->
+          <div class="scrollytelling-overlay-wrapper flex-left text-overlay-2">
+            <div class="scrollytelling-card text-left" style="max-width: 550px;">
+              <span class="scrollytelling-accent">Who We Are</span>
+              <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.2;">About Our Company</h2>
+              <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(244, 246, 246, 0.8); margin-bottom: 25px;">
+                Established in 2024, Bandhan Contracting & General Maintenance LLC has rapidly built a reputation for dependable project execution, skilled manpower, and professional service delivery. We support industrial, commercial, and infrastructure projects with a focus on safety, efficiency, and long-term value.
+              </p>
+              <a href="/about.html" class="btn btn-secondary">Read More <i data-lucide="zap"></i></a>
+            </div>
           </div>
+          
+          <!-- Overlay 3: Why Choose Us Content -->
+          <div class="scrollytelling-overlay-wrapper flex-right text-overlay-3">
+            <div class="scrollytelling-card text-left" style="max-width: 550px;">
+              <span class="scrollytelling-accent">Our Strengths</span>
+              <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.2;">Why Choose Us?</h2>
+              <p style="margin-bottom: 25px; color: rgba(244, 246, 246, 0.8); font-size: 1.05rem; line-height: 1.8;">
+                At Bandhan, we believe successful projects are built on trust, discipline, and attention to detail. Our experienced workforce, strong HSE culture, and commitment to timely delivery allow us to consistently exceed client expectations.
+              </p>
+              <ul class="features-list" style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+                <li style="position: relative; padding-left: 45px; color: var(--text-light);">
+                  <div class="feature-icon" style="position: absolute; left: 0; top: 4px; width: 32px; height: 32px; background-color: rgba(253, 187, 17, 0.08); color: var(--primary-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i data-lucide="shield" style="width: 18px; height: 18px;"></i></div>
+                  <strong style="display: block; font-size: 1.15rem; color: var(--text-light); margin-bottom: 5px; font-weight: 700;">Safety & Trust</strong>
+                  <p style="font-size: 0.95rem; color: #a5b4b4; margin: 0;">We prioritize zero-harm workplaces and maintain absolute transparent reliability.</p>
+                </li>
+                <li style="position: relative; padding-left: 45px; color: var(--text-light);">
+                  <div class="feature-icon" style="position: absolute; left: 0; top: 4px; width: 32px; height: 32px; background-color: rgba(253, 187, 17, 0.08); color: var(--primary-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i data-lucide="hard-hat" style="width: 18px; height: 18px;"></i></div>
+                  <strong style="display: block; font-size: 1.15rem; color: var(--text-light); margin-bottom: 5px; font-weight: 700;">Experienced Workforce</strong>
+                  <p style="font-size: 0.95rem; color: #a5b4b4; margin: 0;">Our highly qualified professionals carry out operations with sheer discipline.</p>
+                </li>
+                <li style="position: relative; padding-left: 45px; color: var(--text-light);">
+                  <div class="feature-icon" style="position: absolute; left: 0; top: 4px; width: 32px; height: 32px; background-color: rgba(253, 187, 17, 0.08); color: var(--primary-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i data-lucide="clock" style="width: 18px; height: 18px;"></i></div>
+                  <strong style="display: block; font-size: 1.15rem; color: var(--text-light); margin-bottom: 5px; font-weight: 700;">Timely Delivery</strong>
+                  <p style="font-size: 0.95rem; color: #a5b4b4; margin: 0;">We strictly adhere to schedules, budgets, and engineering benchmarks.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section class="section services-preview bg-dark">
-      <div class="container text-center">
+    <section class="section bg-dark text-center" id="services-preview">
+      <div class="container reveal-3d reveal-3d--fade-up">
         <span class="section-subtitle">Our Expertise</span>
-        <h2 class="section-title scroll-float" style="color: var(--text-light);" data-play="scroll"><span class="scroll-float-text">Core Services</span></h2>
-        <p style="margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; color: #a5b4b4; font-size: 1.1rem; line-height: 1.8;">Our expertise includes civil and architectural works, earthworks, piping and plumbing, demolition, caravan maintenance, metal and aluminum works, and technical support services for nuclear power plant projects.</p>
+        <h2 class="section-title">Core Services</h2>
+        <p style="margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; color: #a5b4b4; font-size: 1.15rem; line-height: 1.6;">Our expertise includes civil and architectural works, earthworks, piping and plumbing, demolition, caravan maintenance, metal and aluminum works, and technical support services for nuclear power plant projects.</p>
         
-        <div class="services-grid reveal-group">
-          
-          <div class="service-card reveal-3d reveal-3d--flip-up">
+        <div class="services-grid">
+          <div class="service-card">
             <div class="icon"><i data-lucide="construction"></i></div>
             <h3>Civil & Architectural Works</h3>
             <p>Complete civil and architectural solutions including construction support and infrastructure services.</p>
             <a href="/services.html" class="read-more">Learn More <span>&rarr;</span></a>
           </div>
           
-          <div class="service-card reveal-3d reveal-3d--flip-up">
+          <div class="service-card">
             <div class="icon"><i data-lucide="shovel"></i></div>
             <h3>Earthworks & Excavation</h3>
             <p>Safe and efficient excavation, earthmoving, compaction, and site preparation services.</p>
             <a href="/services.html" class="read-more">Learn More <span>&rarr;</span></a>
           </div>
           
-          <div class="service-card reveal-3d reveal-3d--flip-up">
+          <div class="service-card">
             <div class="icon"><i data-lucide="droplets"></i></div>
             <h3>Piping & Plumbing Works</h3>
             <p>Professional piping and plumbing solutions for industrial, commercial, and maintenance needs.</p>
             <a href="/services.html" class="read-more">Learn More <span>&rarr;</span></a>
           </div>
           
-          <div class="service-card reveal-3d reveal-3d--flip-up">
+          <div class="service-card">
             <div class="icon"><i data-lucide="hammer"></i></div>
             <h3>Metal, Iron & Aluminum</h3>
             <p>Customized fabrication and installation including structural metal and aluminum solutions.</p>
             <a href="/services.html" class="read-more">Learn More <span>&rarr;</span></a>
           </div>
           
-          <div class="service-card reveal-3d reveal-3d--flip-up">
+          <div class="service-card">
             <div class="icon"><i data-lucide="wrench"></i></div>
             <h3>Building Demolition</h3>
             <p>Safe building demolition and maintenance executed with proper planning and risk control.</p>
             <a href="/services.html" class="read-more">Learn More <span>&rarr;</span></a>
           </div>
           
-          <div class="service-card reveal-3d reveal-3d--flip-up">
+          <div class="service-card">
             <div class="icon"><i data-lucide="cpu"></i></div>
             <h3>Technical Support Services</h3>
             <p>Specialized support for industrial and nuclear power plant projects, delivering skilled manpower.</p>
             <a href="/services.html" class="read-more">Learn More <span>&rarr;</span></a>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="section why-choose-us bg-glow-wrapper">
-      <div class="bg-glow-light" style="left: -100px; right: auto; background: radial-gradient(circle, rgba(253, 187, 17, 0.06) 0%, transparent 70%);"></div>
-      <div class="container">
-        <div class="why-grid">
-          <div class="overlap-image-wrapper reveal-3d reveal-3d--tilt-left">
-            <img src="/why.jpg" alt="Team at work">
-          </div>
-          <div class="why-text reveal-3d reveal-3d--tilt-right">
-            <span class="section-subtitle">Our Strengths</span>
-            <h2 class="section-title">Why Choose Us?</h2>
-            <p style="margin-bottom: 30px; color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">At Bandhan, we believe successful projects are built on trust, discipline, and attention to detail. Our experienced workforce, strong HSE culture, and commitment to timely delivery allow us to consistently exceed client expectations.</p>
-            
-            <ul class="features-list reveal-group">
-              <li class="reveal-3d reveal-3d--rotate-glide">
-                <div class="feature-icon"><i data-lucide="shield"></i></div>
-                <strong>Safety & Trust</strong>
-                <p>We prioritize zero-harm workplaces and maintain absolute transparent reliability.</p>
-              </li>
-              <li class="reveal-3d reveal-3d--rotate-glide">
-                <div class="feature-icon"><i data-lucide="hard-hat"></i></div>
-                <strong>Experienced Workforce</strong>
-                <p>Our highly qualified professionals carry out operations with sheer discipline.</p>
-              </li>
-              <li class="reveal-3d reveal-3d--rotate-glide">
-                <div class="feature-icon"><i data-lucide="clock"></i></div>
-                <strong>Timely Delivery</strong>
-                <p>We strictly adhere to schedules, budgets, and engineering benchmarks.</p>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

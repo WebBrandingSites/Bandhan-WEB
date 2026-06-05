@@ -26,6 +26,10 @@ import {
   Award,
   ShieldCheck
 } from 'lucide';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function init() {
     console.log('Bandhan website loaded');
@@ -104,6 +108,102 @@ function init() {
             }
         });
     }
+
+    // Initialize dynamic 3D cursor tilt effect for all images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('mousemove', (e) => {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Calculate rotation degrees (up to 12 degrees max tilt)
+            const rotateX = ((centerY - y) / centerY) * 12; 
+            const rotateY = ((x - centerX) / centerX) * 12; 
+
+            img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        });
+
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+    });
+
+    // Initialize ScrollFloat text-splitting and GSAP animations
+    const scrollFloats = document.querySelectorAll('.scroll-float');
+    scrollFloats.forEach(el => {
+        const textElement = el.querySelector('.scroll-float-text');
+        if (textElement) {
+            const textContent = textElement.textContent.trim();
+            const words = textContent.split(/\s+/);
+            
+            // Rebuild HTML: wrap each word to prevent broken wrapping,
+            // and each letter in a span.char
+            textElement.innerHTML = words.map(word => {
+                const chars = word.split('').map(char => `<span class="char">${char}</span>`).join('');
+                return `<span class="word" style="display: inline-block; white-space: nowrap;">${chars}</span>`;
+            }).join('&nbsp;');
+
+            const charElements = textElement.querySelectorAll('.char');
+            const playType = el.getAttribute('data-play') || 'scroll';
+
+            if (playType === 'onload') {
+                // Animate immediately on load (perfect for hero headings)
+                gsap.fromTo(
+                    charElements,
+                    {
+                        willChange: 'opacity, transform',
+                        opacity: 0,
+                        yPercent: 120,
+                        scaleY: 2.3,
+                        scaleX: 0.7,
+                        transformOrigin: '50% 0%'
+                    },
+                    {
+                        duration: 0.8,
+                        ease: 'back.out(1.5)',
+                        opacity: 1,
+                        yPercent: 0,
+                        scaleY: 1,
+                        scaleX: 1,
+                        stagger: 0.03,
+                        delay: 0.2
+                    }
+                );
+            } else {
+                // Scroll-linked animation for elements below the fold
+                gsap.fromTo(
+                    charElements,
+                    {
+                        willChange: 'opacity, transform',
+                        opacity: 0,
+                        yPercent: 120,
+                        scaleY: 2.3,
+                        scaleX: 0.7,
+                        transformOrigin: '50% 0%'
+                    },
+                    {
+                        duration: 1,
+                        ease: 'back.inOut(2)',
+                        opacity: 1,
+                        yPercent: 0,
+                        scaleY: 1,
+                        scaleX: 1,
+                        stagger: 0.03,
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top bottom-=10%', // Trigger when the top of the header hits near bottom of screen
+                            end: 'bottom center+=10%',  // Complete when the header scrolls up to center area
+                            scrub: true
+                        }
+                    }
+                );
+            }
+        }
+    });
 }
 
 if (document.readyState === 'loading') {

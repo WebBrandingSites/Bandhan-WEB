@@ -1378,7 +1378,6 @@ footer {
   border-radius: var(--border-radius);
   color: var(--text-light);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-  pointer-events: auto;
   max-height: 85vh;
   overflow-y: auto;
   box-sizing: border-box;

@@ -1656,6 +1656,20 @@ footer {
   .service-card .icon, .value-card h3 {
     justify-content: center !important;
   }
+  
+  /* Mobile Height & Spacing Optimizations */
+  .map-container {
+    height: 300px !important;
+  }
+  footer {
+    padding: 40px 0 20px !important;
+  }
+  .page-header {
+    padding: 60px 0 !important;
+  }
+  .contact-form {
+    padding: 30px !important;
+  }
 }
 
 @media (max-width: 480px) {

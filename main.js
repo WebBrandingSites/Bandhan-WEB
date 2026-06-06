@@ -74,14 +74,11 @@ function init() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
+        let isMenuOpen = false;
         menuToggle.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
             navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                icon.setAttribute('data-lucide', 'menu');
-            }
+            menuToggle.innerHTML = isMenuOpen ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
             createIcons({ icons: { Menu, X } });
         });
     }
@@ -324,6 +321,17 @@ function init() {
             floatingContact.classList.toggle('active');
         });
     }
+
+    // Mobile Progressive Disclosure Toggle
+    document.querySelectorAll('.read-more-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const textEl = e.target.previousElementSibling;
+            if (textEl && textEl.classList.contains('mobile-truncate')) {
+                textEl.classList.toggle('expanded');
+                e.target.textContent = textEl.classList.contains('expanded') ? '- Read Less' : '+ Read More';
+            }
+        });
+    });
 }
 
 if (document.readyState === 'loading') {

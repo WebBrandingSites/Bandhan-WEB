@@ -1606,6 +1606,16 @@ footer {
     font-size: 1.05rem !important;
   }
   
+  /* Leadership Message Mobile Fixes */
+  .leadership-section {
+    padding: 25px !important;
+  }
+  .leadership-quote {
+    font-size: 1.05rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+  }
+  
   /* Mobile Truncation */
   .mobile-truncate {
     display: -webkit-box;

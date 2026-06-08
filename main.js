@@ -171,7 +171,7 @@ function init() {
             for (let i = 1; i <= totalFrames; i++) {
                 const img = new Image();
                 const frameNum = String(i).padStart(3, '0');
-                img.src = `/3D%20New%20Sequences/ezgif-frame-${frameNum}.jpg`;
+                img.src = `${import.meta.env.BASE_URL}3D%20New%20Sequences/ezgif-frame-${frameNum}.jpg`;
                 
                 img.onload = () => {
                     loadedCount++;

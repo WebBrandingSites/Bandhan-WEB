@@ -341,3 +341,21 @@ if (document.readyState === 'loading') {
 }
 
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const whatsappForm = document.getElementById('whatsappForm');
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('waName').value;
+            const email = document.getElementById('waEmail').value;
+            const phone = document.getElementById('waPhone').value;
+            const message = document.getElementById('waMessage').value;
+            
+            const text = `*New Inquiry from Website*\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Message:*\n${message}`;
+            const encodedText = encodeURIComponent(text);
+            
+            window.open(`https://wa.me/971544453885?text=${encodedText}`, '_blank');
+        });
+    }
+});
